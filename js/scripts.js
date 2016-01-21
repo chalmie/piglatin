@@ -5,21 +5,26 @@
 var pigLatin = function(word) {
   var pigWord;
     if (!word.match(/^[aeiou]/i)) {
-      if (word.match(/qu/i)) {
-        for (var index = 0; !word[index].match(/[aeio]/i); index ++) {
-          var wordFront = word.slice(0, index+1);
-        }
-        pigWord = word.slice(index) + wordFront;
-      } else {
-      for (var index = 0; !word[index].match(/[aeiou]/i); index ++) {
+// !!!Looks like both branches of this if statement execute the same code, I took out the code and copied it below outside of the if else, and it still runs okay, :)
+      // if (word.match(/qu/i)) {
+      //   for (var index = 0; !word[index].match(/[aeio]/i); index ++) {
+      //     var wordFront = word.slice(0, index+1);
+      //   }
+      //   pigWord = word.slice(index) + wordFront;
+      // } else {
+      //   for (var index = 0; !word[index].match(/[aeiou]/i); index ++) {
+      //     var wordFront = word.slice(0, index+1);
+      //   }
+      //   pigWord = word.slice(index) + wordFront;
+      // }
+      for (var index = 0; !word[index].match(/[aeio]/i); index ++) {
         var wordFront = word.slice(0, index+1);
       }
-        pigWord = word.slice(index) + wordFront;
-      }
-      } else {
-        return word + "ay";
-      }
-      return pigWord += "ay";
+      pigWord = word.slice(index) + wordFront;
+    } else {
+      return word + "ay";
+    }
+    return pigWord += "ay";
 };
     //   for (var index = 0; !word[index].test(/[aeiou]/i); index ++) {
     //     var wordFront = (word.slice(0, index+1));
